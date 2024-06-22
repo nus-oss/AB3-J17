@@ -10,8 +10,10 @@ plugins {
 
 mainClassName = 'seedu.address.Main'
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+// note: ensure that you are running Java 17 JDK or above! Else, there will be
+// a compile-time error due to incompatible Java version.
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
