@@ -20,9 +20,22 @@ checkstyle {
     toolVersion = '10.2'
 }
 
+def pathToFx = System.getenv('PATH_TO_FX')
+
 test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
+    jvmArgs = [
+            '--module-path', "${pathToFx}",
+            '--add-modules', 'javafx.controls,javafx.fxml'
+    ]
+}
+
+application {
+    applicationDefaultJvmArgs = [
+            '--module-path', "${pathToFx}",
+            '--add-modules', 'javafx.controls,javafx.fxml'
+    ]
 }
 
 task coverage(type: JacocoReport) {
@@ -42,7 +55,7 @@ task coverage(type: JacocoReport) {
 
 dependencies {
     String jUnitVersion = '5.4.0'
-    String javaFxVersion = '17.0.7'
+    String javaFxVersion = '17.0.11'
 
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'win'
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'mac'
@@ -61,7 +74,6 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.7.4'
 
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: jUnitVersion
-
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: jUnitVersion
 }
 
