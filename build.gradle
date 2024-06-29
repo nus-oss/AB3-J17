@@ -67,7 +67,7 @@ dependencies {
 }
 
 shadowJar {
-    archiveFileName = 'addressbook.jar'
+    archiveFileName = 'MacSillicon-BaskarGopinath.jar'
 }
 
 defaultTasks 'clean', 'test'
