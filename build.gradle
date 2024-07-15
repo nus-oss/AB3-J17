@@ -8,6 +8,8 @@ plugins {
 
 mainClassName = 'seedu.address.Main'
 
+def pathToFx = System.getenv('PATH_TO_FX')
+
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
@@ -23,6 +25,17 @@ checkstyle {
 test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
+    jvmArgs = [
+            '--module-path', "${pathToFx}",
+            '--add-modules', 'javafx.controls,javafx.fxml'
+    ]
+}
+
+application {
+    applicationDefaultJvmArgs = [
+            '--module-path', "${pathToFx}",
+            '--add-modules', 'javafx.controls,javafx.fxml'
+    ]
 }
 
 task coverage(type: JacocoReport) {
