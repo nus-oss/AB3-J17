@@ -182,6 +182,7 @@ _Details coming soon ..._
 ## Known issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+2. **When you minimize the Help Window**, and attempt to open it again, it will not show up. The Help Window should prompt up regardless of whether it is minimized or not. The remedy is to manually restore the minimized Help Window from the taskbar.
 
 --------------------------------------------------------------------------------------------------------------------
 
